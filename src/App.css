@@ -1,0 +1,369 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  overflow-y: scroll;
+}
+
+body {
+  margin: 0;
+  background: #eef2f7;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Ubuntu, sans-serif;
+  color: #0f172a;
+}
+
+.app-container {
+  max-width: 800px;
+  margin: 48px auto;
+  padding: 0 20px;
+}
+
+h1 {
+  text-align: center;
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 36px;
+  color: #020617;
+}
+
+.job-form {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px;
+  background: #ffffff;
+  border-radius: 16px;
+  border: 1px solid #e5e7eb;
+  margin-bottom: 36px;
+  box-shadow: 0 14px 36px rgba(15, 23, 42, 0.1);
+}
+
+.job-form input {
+  height: 42px;
+  padding: 0 14px;
+  border-radius: 10px;
+  border: 1px solid #cbd5e1;
+  font-size: 14px;
+  background: #ffffff;
+  color: #020617;
+  flex: 1;
+}
+
+.job-form input::placeholder {
+  color: #94a3b8;
+}
+
+.job-form input:focus {
+  outline: none;
+  border-color: #22c55e;
+}
+
+.job-form button {
+  height: 42px;
+  padding: 0 18px;
+  border-radius: 10px;
+  background: #16a34a;
+  color: #ffffff;
+  border: none;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.job-form button:hover {
+  background: #15803d;
+  box-shadow: 0 6px 14px rgba(22, 163, 74, 0.3);
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 14px;
+  background: #f8fafc;
+  border-radius: 14px;
+  border: 1px solid #e5e7eb;
+  margin-bottom: 6px;
+}
+
+.controls label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  color: #475569;
+}
+
+.controls select {
+  padding: 7px 12px;
+  border-radius: 10px;
+  border: 1px solid #cbd5e1;
+  font-size: 14px;
+  background-color: #ffffff;
+  color: #020617;
+  cursor: pointer;
+}
+
+.controls button {
+  margin-left: auto;
+  background: #fee2e2;
+  color: #b91c1c;
+  border: 1px solid #fecaca;
+  padding: 7px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.controls button:hover {
+  background: #fecaca;
+}
+
+.job-list {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0 0;
+  position: relative;
+}
+
+.job-list::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    #e5e7eb,
+    transparent
+  );
+}
+
+.job-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 16px 20px;
+  margin-bottom: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 14px 32px rgba(15, 23, 42, 0.09);
+}
+
+.job-left h3 {
+  margin: 0;
+  font-size: 16.5px;
+  font-weight: 600;
+  color: #020617;
+}
+
+.job-left p {
+  margin: 6px 0 0;
+  font-size: 14px;
+  color: #475569;
+}
+
+.job-date {
+  cursor: pointer;
+}
+
+.job-right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.status-badge {
+  min-width: 104px;
+  padding: 6px 0;
+  text-align: center;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.status-badge.applied {
+  background: #e0f2fe;
+  color: #0369a1;
+}
+
+.status-badge.interview {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.status-badge.rejected {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.job-right button {
+  background: #fee2e2;
+  border: 1px solid #fecaca;
+  color: #b91c1c;
+  padding: 8px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.job-right button:hover {
+  background: #fecaca;
+}
+
+.empty-state {
+  margin-top: 50px;
+  text-align: center;
+  font-size: 15px;
+  color: #64748b;
+}
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal {
+  background: #ffffff;
+  width: 380px;
+  border-radius: 16px;
+  padding: 26px;
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.25);
+}
+
+.modal-title {
+  margin: 0 0 8px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.modal-message {
+  margin-bottom: 22px;
+  font-size: 14px;
+  color: #475569;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.btn {
+  padding: 9px 16px;
+  border-radius: 10px;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn.cancel {
+  background: #e5e7eb;
+}
+
+.btn.danger {
+  background: #ef4444;
+  color: #ffffff;
+}
+
+.btn.danger:hover {
+  background: #dc2626;
+}
+
+@media (max-width: 640px) {
+
+  h1 {
+    font-size: 22px;
+    margin-bottom: 20px;
+  }
+
+  .app-container {
+    margin: 32px auto;
+    padding: 0 16px;
+  }
+
+  .job-form {
+    padding: 12px;
+    gap: 8px;
+  }
+
+  .job-form input {
+    height: 40px;
+  }
+
+  .job-form button {
+    height: 40px;
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .controls {
+    padding: 10px;
+    gap: 8px;
+  }
+
+  .controls label {
+    width: 100%;
+    font-size: 13px;
+  }
+
+  .controls select {
+    width: 100%;
+    height: 38px;
+  }
+
+  .controls button {
+    width: 100%;
+    background: #fef2f2;
+    color: #b91c1c;
+    border: 1px solid #fecaca;
+    font-size: 13px;
+    padding: 6px 10px;
+  }
+
+  .job-card {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 14px;
+    gap: 10px;
+  }
+
+  .job-left h3 {
+    font-size: 15.5px;
+  }
+
+  .job-left p {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    flex-wrap: wrap;
+  }
+
+  .job-right {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .status-badge {
+    font-size: 12px;
+    padding: 6px 12px;
+    margin-right: auto;
+  }
+
+  .job-right button {
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+
+}
